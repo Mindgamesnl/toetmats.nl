@@ -1,7 +1,6 @@
 async function load() {
     let response = await fetch("https://toetmats.nl/api/leaderboard")
     let data = await response.json()
-    console.log(data)
 
     function findUser(id) {
         return data.Users[id]

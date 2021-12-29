@@ -73,8 +73,8 @@ function secondsToString (milliseconds) {
     // TIP: to find current time in milliseconds, use:
     // var  current_time_milliseconds = new Date().getTime();
 
-    function numberEnding (number) {
-        return (number > 1) ? 's' : '';
+    function numberEnding (number, ext) {
+        return (number > 1) ? ext : '';
     }
 
     var temp = Math.floor(milliseconds / 1000);
@@ -86,18 +86,18 @@ function secondsToString (milliseconds) {
     var days = Math.floor((temp %= 31536000) / 86400);
     var hours = Math.floor((temp %= 86400) / 3600);
     if (days) {
-        return days + ' dag' + numberEnding(days) + " " + hours + " uur";
+        return days + ' dag' + numberEnding(days, "en") + " " + hours + " uur";
     }
     if (hours) {
-        return hours + ' uur' + numberEnding(hours);
+        return hours + ' uur' + numberEnding(hours, "en");
     }
     var minutes = Math.floor((temp %= 3600) / 60);
     if (minutes) {
-        return minutes + ' min' + numberEnding(minutes);
+        return minutes + ' min' + numberEnding(minutes, "");
     }
     var seconds = temp % 60;
     if (seconds) {
-        return seconds + ' sec' + numberEnding(seconds);
+        return seconds + ' sec' + numberEnding(seconds, "");
     }
     return 'less than a second'; //'just now' //or other string you like;
 }

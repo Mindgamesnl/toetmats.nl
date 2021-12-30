@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToetMats | Joe joe</title>
-    <link href="assets/small-logo.png" rel="icon">
-    <link href="assets/small-logo.png" rel="image">
+    <link href="../leaderboard-site/assets/logo.png" rel="icon">
+    <link href="../leaderboard-site/assets/logo.png" rel="image">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
@@ -26,13 +26,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
           integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <style>
+        .subscriber {
+            background: linear-gradient(
+                    to right,
+                    hsl(98 100% 62%),
+                    hsl(204 100% 59%)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        @media (min-width: 1536px) {
+            .stats  {
+                max-width: 90% !important;
+            }
+        }
+
+    </style>
 </head>
 <body>
+
+<script>
+    if (window.location.href.indexOf(".nl") !== -1) {
+        var loc = window.location.href+'';
+        if (loc.indexOf('http://')==0){
+            window.location.href = loc.replace('http://','https://');
+        }
+    }
+</script>
 
 <header class="text-white bg-red-500 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-            <img src="assets/small-logo.png" class="w-10 h-10 text-white bg-indigo-500 rounded-full"/>
+            <img src="../leaderboard-site/assets/mats.jpg" class="w-10 h-10 text-white bg-indigo-500 rounded-full"/>
             <span class="ml-3 text-xl">ToetMats</span>
         </a>
         <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-white	flex flex-wrap items-center text-base justify-center">
@@ -107,15 +136,15 @@
 
 
 <section class="text-gray-400 bg-gray-900 body-font overflow-hidden">
-    <div class="container px-5 pt-10 pb-20 mx-auto">
+    <div class="container stats px-5 pt-10 pb-20 mx-auto">
         <div class="flex flex-col text-center w-full mb-10">
             <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">Liefste schatjes</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Mooi lijstje van de meest actieve en loyaale thee
-                leutjes</p>
+                leutjes.<br/><span class="subscriber">subs zijn aangegeven met mooie kleurtjes</span> </p>
         </div>
         <div class="flex flex-wrap -m-4">
 
-            <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+            <div class="p-4 xl:w-1/5 md:w-1/2 w-full">
                 <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden" id="streaks">
                     <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">🔥</span>
                     <h1 class="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
@@ -124,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+            <div class="p-4 xl:w-1/5 md:w-1/2 w-full">
                 <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden" id="watchtime">
                     <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">🕒</span>
                     <h1 class="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
@@ -133,17 +162,25 @@
                 </div>
             </div>
 
-            <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+            <div class="p-4 xl:w-1/5 md:w-1/2 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden" id="subwatchtime">
+                    <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">💬</span>
+                    <h1 class="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
+                        <span class="subscriber">Subtime</span>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="p-4 xl:w-1/5 md:w-1/2 w-full">
                 <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden" id="chatters">
                     <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">💬</span>
                     <h1 class="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
                         Chats
                     </h1>
-
                 </div>
             </div>
 
-            <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+            <div class="p-4 xl:w-1/5 md:w-1/2 w-full">
                 <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden" id="newest">
                     <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">👶</span>
                     <h1 class="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
@@ -186,6 +223,6 @@
 
 </body>
 
-<script src="assets/loader.js?version=joeeewatchtime"></script>
+<script src="assets/loader.js"></script>
 
 </html>
